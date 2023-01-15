@@ -13,7 +13,7 @@ class MultilangColumnHeaderCell extends MultilangLabel implements AbstractTableC
   @override
   set value(TableColumnDescr value) {
     _columnDescr = value;
-    caption = value.caption;
+    langKey = value.caption;
     width = '${value.width}px';
     if (value.sortable) {
       addCssClass('Sortable');
