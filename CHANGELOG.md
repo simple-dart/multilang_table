@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Upgrade table version to 0.0.5
+
 ## 0.0.2
 
 - Update dependencies

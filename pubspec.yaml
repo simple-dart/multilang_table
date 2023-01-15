@@ -1,6 +1,6 @@
 name: simple_dart_multilang_table
 description: Multilang table Component
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/simple-dart/multilang_table
 platforms:
   web:
@@ -13,7 +13,7 @@ dependencies:
   simple_dart_multilang_controller: ^0.0.1
   simple_dart_multilang_label: ^0.0.1
   simple_dart_multilang_link: ^0.0.1
-  simple_dart_table: ^0.0.3
+  simple_dart_table: ^0.0.5
   simple_dart_ui_core: ^0.0.2
   simple_dart_utils_date_time: ^0.0.1
 

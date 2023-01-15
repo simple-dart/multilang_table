@@ -1,18 +1,26 @@
 import 'package:simple_dart_multilang_label/simple_dart_multilang_label.dart';
 import 'package:simple_dart_table/simple_dart_table.dart';
 
-class MultilangColumnHeaderCell extends MultilangLabel implements AbstractTableCell {
-  MultilangColumnHeaderCell(TableColumnDescr column) {
+class MultilangColumnHeaderCell extends MultilangLabel implements AbstractTableCell<TableColumnDescr> {
+  late TableColumnDescr _columnDescr;
+
+  MultilangColumnHeaderCell(TableColumnDescr columnDescr) : super() {
     addCssClass('TableCell');
-    langKey = column.caption;
-    width = '${column.width}px';
-    if (column.sortable) {
-      addCssClass('Sortable');
-    }
-    hAlign = column.hAlign;
     shrinkable = true;
+    value = columnDescr;
   }
 
   @override
-  String get text => caption;
+  set value(TableColumnDescr value) {
+    _columnDescr = value;
+    caption = value.caption;
+    width = '${value.width}px';
+    if (value.sortable) {
+      addCssClass('Sortable');
+    }
+    hAlign = value.hAlign;
+  }
+
+  @override
+  TableColumnDescr get value => _columnDescr;
 }

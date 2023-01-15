@@ -7,15 +7,15 @@ import 'multilang_table_cells.dart';
 AbstractTableCell tableValueToCellMultilang(TableColumnDescr columnDescr, dynamic value) {
   AbstractTableCell cell;
   if (value is TableLink) {
-    cell = MultilangLinkTableCell(value);
+    cell = MultilangLinkTableCell()..value;
   } else if (value is TableImage) {
     cell = ImageTableCell(value);
   } else if (value is Component) {
     cell = ComponentTableCell(value);
   } else if (value is List<String>) {
-    cell = MultilangMultilineTableCell(value);
+    cell = MultilangMultilineTableCell()..value = value;
   } else if (value is List) {
-    cell = MultiComponentTableCell(value);
+    cell = MultiComponentTableCell()..value = value;
   } else {
     var valueStr = '';
     if (value == null) {
@@ -27,7 +27,7 @@ AbstractTableCell tableValueToCellMultilang(TableColumnDescr columnDescr, dynami
     } else {
       valueStr = value.toString();
     }
-    cell = MultilangLabelTableCell(valueStr);
+    cell = MultilangLabelTableCell()..value = valueStr;
   }
   return cell;
 }
