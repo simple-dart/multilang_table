@@ -38,12 +38,12 @@ class MultilangTableRow extends AbstractTableRow {
       if (isCompatibleCell) {
         existCell.value = value;
       } else {
-        final cell = cellFactory.createCellByType(columnDescr, value)
+        final newCell = cellFactory.createCellByType(columnDescr, value)
           ..value = value
           ..width = '${columnDescr.width}px';
         cells[colNum].remove();
-        cells[colNum] = cell;
-        add(cell);
+        insert(colNum, newCell);
+        cells[colNum] = newCell;
       }
     }
   }

@@ -1,3 +1,7 @@
+## 0.1.1
+
+- Upgrade table version to 0.1.1
+
 ## 0.1.0
 
 - Upgrade table version to 0.1.0

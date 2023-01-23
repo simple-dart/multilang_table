@@ -16,27 +16,7 @@ class MultilangTable extends Table {
       final headerCell = headersRow.cells[i];
       if (columnDescr.sortable) {
         headerCell.element.onClick.listen((e) {
-          var desc = false;
-          if (headerCell.hasCssClass('Sorted')) {
-            headerCell
-              ..removeCssClass('Sorted')
-              ..addCssClass('SortedDesc');
-            desc = true;
-          } else if (headerCell.hasCssClass('SortedDesc')) {
-            headerCell.removeCssClass('SortedDesc');
-          } else {
-            headerCell.addCssClass('Sorted');
-          }
-          for (final otherHeaderCell in headersRow.cells) {
-            if (otherHeaderCell == headerCell) {
-              continue;
-            } else {
-              otherHeaderCell
-                ..removeCssClass('Sorted')
-                ..removeCssClass('SortedDesc');
-            }
-          }
-          sortData(columnIndex: i, desc: desc);
+          onSortClick(headerCell, i);
         });
       }
     }
