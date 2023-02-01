@@ -6,7 +6,10 @@ import '../simple_dart_multilang_table.dart';
 class CellRendererMultilang extends CellRenderer {
   @override
   bool checkCellByType(AbstractTableCell cell, dynamic value) {
-    if ((value == null || value is String) && cell is MultilangLabelTableCell) {
+    if (value == null && cell is NullTableCell) {
+      return true;
+    }
+    if (value is String && cell is MultilangLabelTableCell) {
       return true;
     }
     if (value is TableColumnDescr && cell is MultilangColumnHeaderCell) {
@@ -41,7 +44,10 @@ class CellRendererMultilang extends CellRenderer {
 
   @override
   AbstractTableCell createCellByType(TableColumnDescr columnDescr, dynamic value) {
-    if (value == null || value is String) {
+    if (value == null) {
+      return NullTableCell();
+    }
+    if (value is String) {
       return MultilangLabelTableCell();
     }
     if (value is TableColumnDescr) {
